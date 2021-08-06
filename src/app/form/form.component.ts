@@ -8,6 +8,7 @@ export interface Empolyee{
   doj:Date;
   gender:string;
   address:string;
+  telnum:string;
 }
 @Component({
   selector: 'app-form',
@@ -18,7 +19,7 @@ export class FormComponent implements OnInit {
 
   maxdate:Date;
   formdata:Empolyee[]=[]
-  displayedColumns: string[] = ['name', 'gender','doj','address'];
+  displayedColumns: string[] = ['name', 'gender','doj','address','telnum'];
   @ViewChild(MatTable) table!: MatTable<Empolyee> ;
 
 
@@ -37,7 +38,7 @@ export class FormComponent implements OnInit {
     this.formdata.push(f.value);
     this.table.renderRows();
     f.reset();//resets the whole form 
-    this._snackbar.open("Form Submitted Successfully", "Dismiss",{duration: 1000});
+    this._snackbar.open("Form Submitted Successfully", "Dismiss",{duration: 1500});
   }
 
   

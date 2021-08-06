@@ -1,17 +1,26 @@
 
-<form novalidate #empform="ngForm" (ngSubmit)=onSubmit(empform) >
-    <mat-form-field  appearance="fill">
+<!-- <form novalidate #empform="ngForm" (ngSubmit)=onSubmit(empform)  fxLayout="column" >
+
+    <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+    <mat-form-field  appearance="fill" class="bg dark" fxFlex>
         <mat-label>Name :</mat-label>
-        <input matInput ngModel name="name" required #name="ngModel">
+        <input matInput ngModel name="name"  required #name="ngModel" minlength="4">
         <mat-error *ngIf="name.errors?.required">Name is required</mat-error>
     </mat-form-field>
 
-    <mat-label>Gender:</mat-label>
+    
     <mat-radio-group name="gender" ngModel required  >
-       <mat-radio-button value="Male">Male</mat-radio-button>
-        <mat-radio-button value="Female" >Female</mat-radio-button>
+        <mat-label><strong>Gender<span class="flex-spacer"></span></strong></mat-label>
+       <mat-radio-button value="Male">Male</mat-radio-button><mat-icon matSuffix>male</mat-icon>
+        <mat-radio-button value="Female" >Female</mat-radio-button><mat-icon matSuffix>female</mat-icon>
     </mat-radio-group>
     
+    <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input type="tel" matInput  ngModel name="telnum" #telnum="ngModel" required pattern="[0-9]*"> 
+        <mat-icon matSuffix>phone</mat-icon>
+        
+    </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Date of Joining</mat-label>
         <input matInput [matDatepicker]="dojpicker" placeholder="MM/DD/YYYY" ngModel name="doj" [max]="maxdate" required>
@@ -20,40 +29,120 @@
         <mat-error *ngIf="name.errors?.required">Date is required</mat-error>
       </mat-form-field>
 
-
       <mat-form-field appearance="fill">
         <mat-label>Address:</mat-label>
         <textarea ngModel name="address" matInput required></textarea>
         <mat-error *ngIf="name.errors?.required">Address is required</mat-error>
       </mat-form-field>
+      </div>
       <button type="submit" mat-raised-button color="primary"  [disabled]="empform.form.invalid" >submit</button>
 
+style="background-image: url(assets/images/Reliance-JIO-Mumbai-_SP_2433-Edited-1200x843.jpg);
+</form> -->
+<div  class="table-holder">
+<div class="row">
 
-</form>
+    <div class="column" >
+    
+        <form novalidate #empform="ngForm" (ngSubmit)=onSubmit(empform) >
+          <div fxLayout="row">
+            <div fxFlexOffset="10" fxFlex="80">
+                <mat-form-field  appearance="outline" class="example-full-width" >
+                    <mat-label>Name :</mat-label>
+                    <input matInput ngModel name="name"  required #name="ngModel" >
+                    <mat-error *ngIf="name.errors?.required ">Name is required</mat-error>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+      
+            </div>
+          </div>
+          <div fxLayout="row">
+            <div fxFlexOffset="10" fxFlex="80">
+                <mat-radio-group name="gender" appearance="outline"   ngModel required  class="example-full-width">
+                    <mat-label><strong>Gender: <span class="flex-spacer"></span></strong></mat-label>
+                   <mat-radio-button value="Male">Male<mat-icon >male</mat-icon></mat-radio-button>
+                    <mat-radio-button value="Female" >Female<mat-icon matSuffix>female</mat-icon></mat-radio-button>
+                </mat-radio-group>
+            </div>
+          </div>
+          <div fxLayout="row">
+            <div fxFlexOffset="10" fxFlex="80">
+                <mat-form-field  appearance="outline"   class="example-full-width" >
+                    <mat-label>Phone Number</mat-label>
+                    <input type="tel" matInput  ngModel name="telnum" #telnum="ngModel" required pattern="[0-9]*"> 
+                    <mat-error *ngIf="name.errors?.required">Phone number is required</mat-error>
+                    <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row">
+            <div fxFlexOffset="10" fxFlex="80">
+                <mat-form-field  appearance="outline"   class="example-full-width">
+                    <mat-label>Date of Joining</mat-label>
+                    <input matInput [matDatepicker]="dojpicker" placeholder="MM/DD/YYYY" ngModel name="doj" [max]="maxdate" required>
+                    <mat-datepicker-toggle matSuffix [for]="dojpicker"></mat-datepicker-toggle>
+                    <mat-datepicker #dojpicker></mat-datepicker>
+                    <mat-error *ngIf="name.errors?.required">Date is required</mat-error>
+                  </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row">
+            <div fxFlexOffset="10" fxFlex="80">
+                <mat-form-field   appearance="outline"   class="example-full-width">
+                    <mat-label>Address:</mat-label>
+                    <textarea ngModel name="address" matInput required></textarea>
+                    <mat-error *ngIf="name.errors?.required">Address is required</mat-error>
+                    <mat-icon matSuffix>home</mat-icon>
+                  </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row">
+            <div fxFlexOffset="10" fxFlex="80" fxLayoutAlign="center" >
+                <button type="submit" mat-raised-button color="accent"  [disabled]="empform.form.invalid" >Save</button>
+            </div>
+          </div>
+        </form>
+      
+      
+    </div>
 
 
-<hr>
-<table mat-table [dataSource]='formdata'>
+<div class="column">
+    <div class="title-holder">
+        <h3 class="list-title">Empolyee Details</h3>
+      </div>
+<table mat-table [dataSource]='formdata' >
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <th class="header" mat-header-cell *matHeaderCellDef> Name</th>
         <td mat-cell *matCellDef="let user">{{user.name}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="telnum">
+        <th class="header" mat-header-cell *matHeaderCellDef> Phone Number</th>
+        <td mat-cell *matCellDef="let user">{{user.telnum}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="gender">
-        <th mat-header-cell *matHeaderCellDef> Gender</th>
+        <th class="header" mat-header-cell *matHeaderCellDef> Gender</th>
         <td mat-cell *matCellDef="let user">{{user.gender}}</td>
     </ng-container>
 
     <ng-container matColumnDef="doj">
-        <th mat-header-cell *matHeaderCellDef>Date of Joining</th>
+        <th class="header" mat-header-cell *matHeaderCellDef>Date of Joining</th>
         <td mat-cell *matCellDef="let user">{{user.doj|date}}</td>
     </ng-container>
 
     <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef>address</th>
+        <th class="header" mat-header-cell *matHeaderCellDef>address</th>
         <td mat-cell *matCellDef="let user">{{user.address}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
+
+</div>
+</div>
+
+  

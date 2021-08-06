@@ -2,3 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.background{
+    background-color:#18181a;
+}
+.mat-form-field-label{
+    color: blue ;
+    
+  }
+  .mat-form-field-underline{
+    background-color: rgb(10, 24, 155);
+  }
+ .mat-radio-group{
+     color:blue;
+ }
