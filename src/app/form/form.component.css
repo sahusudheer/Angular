@@ -1,22 +1,26 @@
 .table-holder {
   background-color:white;
-  padding: 15px;
+  
   padding-top: 5px;
   border-radius: 5px;
   margin-left: 45px;
   margin-right: 45px;
+  
+
 }
 
 .title-holder {
   border-bottom: 2px solid #f2f2f2;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 table{
     border-collapse: collapse;
     width: 100%;
+    
 }
-th,td,tr {
+th,td {
   text-align: center ;
     color: black;
     
@@ -34,12 +38,6 @@ transform: scaleX(3);
 
 
 
-.center { /*for button*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
- 
-}
 
 
 /* Create two equal columns that floats next to each other */
@@ -47,6 +45,7 @@ transform: scaleX(3);
   float: left;
   width: 50%;
   padding: 5px;
+ 
 }
 
 /* Clear floats after the columns */
@@ -54,15 +53,6 @@ transform: scaleX(3);
   content: "";
   display: table;
   clear: both;
-}
-
-.header {
-  padding: 5px;
-  width: 15%;
-  padding-right: 3rem;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  text-align: center;
 }
 
 
@@ -77,18 +67,16 @@ transform: scaleX(3);
   border-top-right-radius: 10px;
 }
 
-.mat-header-cell span {
-  font-weight: 600;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.5px;
-}
-
 .mat-header-cell {
   background-color: #393939;
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-size: medium;
+  padding: 5px;
+  width: 15%;
+
+  
+  text-align: center;
 }
 .mat-header-cell:not(:first-child) {
   padding-left: 0;
@@ -100,6 +88,7 @@ td {
   padding: 20px;
   transition: all 0.2s ease-in-out;
 }
+
 td.highlight {
   padding:0;
   width:4px;
@@ -122,3 +111,14 @@ tr:hover {
    border-bottom: 1px solid grey;
  }
  
+.mat-radio{
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.mat-radio-button{
+  display: flex;
+
+  padding-left: 5px;
+  padding-right: 2px;
+}

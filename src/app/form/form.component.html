@@ -1,49 +1,11 @@
 
-<!-- <form novalidate #empform="ngForm" (ngSubmit)=onSubmit(empform)  fxLayout="column" >
-
-    <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
-    <mat-form-field  appearance="fill" class="bg dark" fxFlex>
-        <mat-label>Name :</mat-label>
-        <input matInput ngModel name="name"  required #name="ngModel" minlength="4">
-        <mat-error *ngIf="name.errors?.required">Name is required</mat-error>
-    </mat-form-field>
-
-    
-    <mat-radio-group name="gender" ngModel required  >
-        <mat-label><strong>Gender<span class="flex-spacer"></span></strong></mat-label>
-       <mat-radio-button value="Male">Male</mat-radio-button><mat-icon matSuffix>male</mat-icon>
-        <mat-radio-button value="Female" >Female</mat-radio-button><mat-icon matSuffix>female</mat-icon>
-    </mat-radio-group>
-    
-    <mat-form-field appearance="fill">
-        <mat-label>Phone Number</mat-label>
-        <input type="tel" matInput  ngModel name="telnum" #telnum="ngModel" required pattern="[0-9]*"> 
-        <mat-icon matSuffix>phone</mat-icon>
-        
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Date of Joining</mat-label>
-        <input matInput [matDatepicker]="dojpicker" placeholder="MM/DD/YYYY" ngModel name="doj" [max]="maxdate" required>
-        <mat-datepicker-toggle matSuffix [for]="dojpicker"></mat-datepicker-toggle>
-        <mat-datepicker #dojpicker></mat-datepicker>
-        <mat-error *ngIf="name.errors?.required">Date is required</mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Address:</mat-label>
-        <textarea ngModel name="address" matInput required></textarea>
-        <mat-error *ngIf="name.errors?.required">Address is required</mat-error>
-      </mat-form-field>
-      </div>
-      <button type="submit" mat-raised-button color="primary"  [disabled]="empform.form.invalid" >submit</button>
-
-style="background-image: url(assets/images/Reliance-JIO-Mumbai-_SP_2433-Edited-1200x843.jpg);
-</form> -->
 <div  class="table-holder">
 <div class="row">
 
     <div class="column" >
-    
+      <div class="title-holder">
+        <h3 class="list-title">Empolyee Form</h3>
+      </div>
         <form novalidate #empform="ngForm" (ngSubmit)=onSubmit(empform) >
           <div fxLayout="row">
             <div fxFlexOffset="10" fxFlex="80">
@@ -56,12 +18,12 @@ style="background-image: url(assets/images/Reliance-JIO-Mumbai-_SP_2433-Edited-1
       
             </div>
           </div>
-          <div fxLayout="row">
+          <div fxLayout="row" >
             <div fxFlexOffset="10" fxFlex="80">
-                <mat-radio-group name="gender" appearance="outline"   ngModel required  class="example-full-width">
-                    <mat-label><strong>Gender: <span class="flex-spacer"></span></strong></mat-label>
-                   <mat-radio-button value="Male">Male<mat-icon >male</mat-icon></mat-radio-button>
-                    <mat-radio-button value="Female" >Female<mat-icon matSuffix>female</mat-icon></mat-radio-button>
+                <mat-radio-group fxLayout="row wrap" name="gender" appearance="outline"   ngModel required  class="mat-radio">
+                    <mat-label><strong>Gender : <span class="flex-spacer"></span></strong></mat-label>
+                   <mat-radio-button class="mat-radio-button" value="Male"><span>Male</span></mat-radio-button><mat-icon style="color: green;" >male</mat-icon>
+                    <mat-radio-button class="mat-radio-button" value="Female" >Female</mat-radio-button><mat-icon color="accent" matSuffix>female</mat-icon>
                 </mat-radio-group>
             </div>
           </div>
@@ -124,7 +86,7 @@ style="background-image: url(assets/images/Reliance-JIO-Mumbai-_SP_2433-Edited-1
 
     <ng-container matColumnDef="gender">
         <th class="header" mat-header-cell *matHeaderCellDef> Gender</th>
-        <td mat-cell *matCellDef="let user">{{user.gender}}</td>
+        <td mat-cell *matCellDef="let user">{{user.gender}}<mat-icon>{{user.gender|lowercase}}</mat-icon></td>
     </ng-container>
 
     <ng-container matColumnDef="doj">
